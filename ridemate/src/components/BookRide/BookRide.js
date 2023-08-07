@@ -68,8 +68,14 @@ function BookRide() {
       center: [-80.1010 , 26.3705 ],
       zoom: 12,
     });
+    const handleWindowResize = () => {
+      map.resize();
+    };
+
+    window.addEventListener('resize',handleWindowResize);
 
     return () => {
+      window.removeEventListener('resize',handleWindowResize);
       map.remove();
     };
   }, []);
